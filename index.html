@@ -1,0 +1,103 @@
+<style>
+    li{
+        display: inline-block;
+        margin: 50px 50px;
+        width: 200px;
+    }
+    
+
+</style>
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Casa-Cambio</title>
+    <link type="favicon" href="data:," />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: antiquewhite;">
+    <form>
+
+
+        <div class="mb-3">
+            <div class="row">
+                <div class="col">
+                    <label class="badge form-label" style="background-color: red;">Ingresa la fecha </label>
+                    <input name="fecha" type="date" style="display: inline; width: 40vh;" class="form-control"
+                        id="fecha">
+                        <ul id="errores" style="display: inline;" >
+
+                        </ul>
+                </div>
+                
+
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label class="badge form-label" style="background-color: black;">Elegi el tipo de moneda </label>
+                    <select id="menu-desplegable" class="form-select form-select-sm"
+                        style="display: inline; width: 40vh" aria-label="Small select example">
+                        <option id="seleccionado" selected>USD</option>
+                        <option value="AUD">AUD</option>
+                        <option value="BGN">BGN</option>
+                        <option value="BRL">BRL</option>
+                        <option value="CAD">CAD</option>
+                        <option value="CHF">CHF</option>
+                        <option value="CNY">CNY</option>
+                        <option value="CZK">CZK</option>
+                        <option value="DKK">DKK</option>
+                        <option value="GBP">GBP</option>
+                        <option value="HKD">HKD</option>
+                        <option value="HUF">HUF</option>
+                        <option value="IDR">IDR</option>
+                        <option value="ILS">ILS</option>
+                        <option value="INR">INR</option>
+                        <option value="ISK">ISK</option>
+                        <option value="JPY">JPY</option>
+                        <option value="KRW">KRW</option>
+                        <option value="MXN">MXN</option>
+                        <option value="MYR">MYR</option>
+                        <option value="NOK">NOK</option>
+                        <option value="NZD">NZD</option>
+                        <option value="PHP">PHP</option>
+                        <option value="PLN">PLN</option>
+                        <option value="RON">RON</option>
+                        <option value="SEK">SEK</option>
+                        <option value="SGD">SGD</option>
+                        <option value="THB">THB</option>
+                        <option value="TRY">TRY</option>
+                        <option value="ZAR">ZAR</option>
+                        <option value="EUR">EUR</option>
+                    </select>
+                </div>
+            </div>
+
+            <button type="submit" id="confirmar" class="btn btn-primary" style="margin-left: 28vh;">Confirmar</button>
+
+        </div>
+
+    </form>
+    <ul id="errores" >
+
+    </ul>
+    <h1 id="fecha-base-cartel"></h1>
+    
+    
+    <ul id="lista"   >
+        
+    </ul>
+    
+    <script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="src/validaciones.js"></script>
+    <script src="src/casa-cambio.js"></script>
+    <script src="src/pruebas.js"></script>
+</body>
+
+</html>
