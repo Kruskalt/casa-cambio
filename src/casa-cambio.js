@@ -1,3 +1,4 @@
+import {Moneda} from "../src/clases/moneda.js";
 
 const $botonConfirmar= document.querySelector("#confirmar")
 
@@ -36,7 +37,7 @@ $botonConfirmar.onclick= (e)=>{
 
 
 
-function pedirTiposDeCambio(fecha,moneda) {
+async function pedirTiposDeCambio(fecha,moneda) {
    
     fetch(`https://api.frankfurter.app/${fecha}?from=${moneda}`)
   .then(respuesta => respuesta.json())
@@ -48,14 +49,16 @@ function pedirTiposDeCambio(fecha,moneda) {
 
     $("#lista").html('');
       
-    Object.keys(respuestaJSON.rates).forEach(moneda => {
+    Object.keys(respuestaJSON.rates).forEach(async moneda => {
       
+      const monedaObj= await new Moneda(moneda,respuestaJSON.rates[moneda])
+
       $("#lista").append($(`
       
       <li >  <div class="card text-bg-light mb-3"  style="max-width: 18rem; ">
-      <div class="card-header">${moneda}:</div>
+      <div class="card-header">${await monedaObj.getNombre()}:</div>
       <div class="card-body">
-        <h5 class="card-title">${respuestaJSON.rates[moneda]}</h5>
+        <h5 class="card-title">${await monedaObj.getValor()}</h5>
         <p class="card-text"></p>
       </div>
     </div>
